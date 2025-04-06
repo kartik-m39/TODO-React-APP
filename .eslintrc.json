@@ -1,0 +1,15 @@
+{
+    "overrides": [
+      {
+        "files": ["frontend/**/*.js"],
+        "env": { "browser": true },
+        "extends": ["eslint:recommended", "plugin:react/recommended"]
+      },
+      {
+        "files": ["backend/**/*.js"],
+        "env": { "node": true },
+        "extends": ["eslint:recommended"]
+      }
+    ]
+  }
+  
