@@ -78,8 +78,7 @@ function Home() {
         }
       );
 
-// To toggle the completed state of the todo after toggling in backend
-
+      // To toggle the completed state of the todo after toggling in backend
 
       // setTodos((prev) => {
       //   // console.log(prev);
@@ -102,9 +101,9 @@ function Home() {
 
       // setCompleted(refreshedData)
 
-      if(Array.isArray(refreshedData)){
-      setTodos(refreshedData.data);
-    }
+      if (Array.isArray(refreshedData)) {
+        setTodos(refreshedData.data);
+      }
       setMsg(response.data.message);
     } catch (err) {
       console.log(err);
@@ -124,24 +123,30 @@ function Home() {
 
   return (
     <>
-      <h1>Hi kartik!</h1>
-      <h2>{msg}</h2>
-      <div>
-        <input type="text" name="input" ref={input}></input>
-        <button onClick={handleAddTodo}>Submit</button>
-      </div>
-      <div>
-        {todos?.map((item) => {
-          return (
-            <div key={item._id}>
-              <li>{item.description}</li>
-              <button onClick={() => handleCompleteTodo(item._id)}>
-                Completed
-              </button>
-              <button onClick={() => handleDeleteTodo(item._id)}>Delete</button>
-            </div>
-          );
-        })}
+      <div className="bg-gray-950 text-white h-screen w-full font-[Poppins] flex flex-col items-center ">
+        <h1 className="text-xl mt-10">Add a Todo </h1>
+        <h2 className="text-red-500 text-base m-2">{msg}</h2>
+        <div>
+          <input type="text" name="input" ref={input} className="border rounded-md px-3 py-2 mb-4 w-full bg-white text-black"></input>
+          <button onClick={handleAddTodo} className="text-lg bg-yellow-400 rounded-md px-4 py-2 m-2 hover:bg-yellow-500 ease-in-out ">Add</button>
+        </div>
+        <div className="py-6 px-4 w-full">
+          {todos?.map((item) => {
+            return (
+              <div key={item._id} className="bg-gray-200 m-2 p-4 rounded-lg flex justify-between items-center text-gray-900">
+                <p>{item.description}</p>
+                <div>
+                  <button onClick={() => handleCompleteTodo(item._id)} className="bg-red-500 text-white px-3 py-1 rounded-md mr-2">
+                    Completed
+                  </button>
+                  <button onClick={() => handleDeleteTodo(item._id)} className="bg-red-500 text-white px-3 py-1 rounded-md">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </>
   );

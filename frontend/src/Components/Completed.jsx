@@ -23,20 +23,20 @@ function Completed() {
   }
 
   return (
-    <>
-      <h2>Completed Tasks</h2>
-      <div>
+    <div className="bg-gray-950 text-white h-screen w-full font-[Poppins] flex flex-col items-center ">
+      <h2 className="text-xl text-white mb-4 mt-10">Completed Tasks</h2>
+      <div className="space-y-2">
         {completedTodo.length === 0 ? (
-          <p>No Completed tasks</p>
+          <p className="text-white">No Completed tasks</p>
         ) : (
-            completedTodo.map((item) => (
-            <div key={item._id}>
-              <li>{item.description}</li>
+          completedTodo.map((item) => (
+            <div key={item._id} className="bg-gray-200 p-4 rounded-lg">
+              <p className="text-gray-900">{item.description}</p>
             </div>
-            ))
+          ))
         )}
       </div>
-    </>
+    </div>
   );
 }
 
